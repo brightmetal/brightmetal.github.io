@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bright Metal & Ferro Alloys</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background: #1e293b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 16px;
+    }
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+      background: white;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #1e293b;
+      margin-top: 0;
+    }
+    ul {
+      margin: 0;
+      padding: 0 20px;
+    }
+    .contact {
+      text-align: center;
+      padding: 20px;
+      background: #1e293b;
+      color: white;
+    }
+    .contact a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .footer {
+      text-align: center;
+      padding: 10px;
+      background: #0f172a;
+      color: #aaa;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bright Metal & Ferro Alloys</h1>
+    <p>A Leading Importer, Exporter & Supplier of Ferro Alloys, Metals & Minerals</p>
+  </header>
+
+  <section>
+    <h2>Company Overview</h2>
+    <p>
+      Founded by <strong>Parmanand Prasad Gupta in April 1994</strong>, Bright Metal & Ferro Alloys has established itself as a trusted name in the supply of high-quality ferro alloys, metals, minerals, and industrial materials. With over three decades of experience, we cater to industries including steel manufacturing, foundries, casting units, refractory production, and chemical processing.
+    </p>
+    <p>
+      Our commitment to quality, reliability, and customer satisfaction has made us a preferred partner across India and abroad.
+    </p>
+  </section>
+
+  <section>
+    <h2>Our Products</h2>
+    <h3>Ferro Alloys & Metals</h3>
+    <ul>
+      <li><strong>Ferro Silicon</strong> – Improves strength & corrosion resistance in steel.</li>
+      <li><strong>Ferro Manganese</strong> – Enhances hardness and strength in steel.</li>
+      <li><strong>Silico Manganese</strong> – Deoxidizer and alloying agent for steelmaking.</li>
+      <li><strong>Ferro Chrome</strong> – Essential for stainless steel; improves resistance to corrosion.</li>
+    </ul>
+
+    <h3>Minerals & Refractory Materials</h3>
+    <ul>
+      <li><strong>Bentonite Powder (Sodium Base)</strong> – Used in foundry, drilling, and iron ore pelletizing.</li>
+      <li><strong>Graphite Scrap</strong> – Applied in steel refining, brake lining, and lubrication.</li>
+      <li><strong>Acidic Ramming Mass</strong> – Thermal shock-resistant lining for induction furnaces.</li>
+      <li><strong>Basic Ramming Mass</strong> – Ideal for lining basic induction furnaces.</li>
+      <li><strong>Perlite Slag 30</strong> – Slag conditioner & insulator in steel/foundry applications.</li>
+    </ul>
+
+    <h3>Other Products</h3>
+    <p>Carbon additives, metallurgical coke, and other mineral-based industrial inputs.</p>
+  </section>
+
+  <section>
+    <h2>Industries We Serve</h2>
+    <ul>
+      <li>Steel & Alloy Manufacturing</li>
+      <li>Foundries & Casting Units</li>
+      <li>Refractory & Insulation Suppliers</li>
+      <li>Chemical & Petrochemical Industries</li>
+      <li>Mining & Metallurgical Applications</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>✔ 30+ years of trusted industry experience</li>
+      <li>✔ Wide product range with assured availability</li>
+      <li>✔ Competitive pricing and global sourcing</li>
+      <li>✔ Quality-assured materials and prompt delivery</li>
+      <li>✔ Trusted by leading industrial clients</li>
+    </ul>
+  </section>
+
+  <div class="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Address:</strong> 65, South Ganesh Nagar, Opp. Mother Dairy Flats, Patparganj, Delhi - 110092</p>
+    <p><strong>Phone:</strong> +91 9891819178 | +91 9990440743</p>
+    <p><strong>Email:</strong> <a href="mailto:brightmetal6@gmail.com">brightmetal6@gmail.com</a></p>
+  </div>
+
+  <div class="footer">
+    © 2025 Bright Metal & Ferro Alloys. All Rights Reserved.
+  </div>
+
+</body>
+</html>
