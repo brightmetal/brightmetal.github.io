@@ -92,6 +92,30 @@
       margin: 10px 0 0;
       font-weight: bold;
     }
+    /* Enquiry Form */
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    form input, form textarea, form button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    form button {
+      background: #2d2d2d;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    form button:hover {
+      background: #444;
+    }
     footer {
       background: #2d2d2d;
       color: #fff;
@@ -186,13 +210,13 @@
 
     <!-- Product Gallery Grid -->
     <div class="gallery">
-      <div class="gallery-item"><img src="acidic-ramming.jpg" alt="Acidic Ramming Mass"></div>
-      <div class="gallery-item"><img src="basic-ramming.jpg" alt="Basic Ramming Mass"></div>
-      <div class="gallery-item"><img src="graphite-scrap.jpg" alt="Graphite Scrap"></div>
-      <div class="gallery-item"><img src="ferro-silicon.jpg" alt="Ferro Silicon"></div>
-      <div class="gallery-item"><img src="ferro-manganese.jpg" alt="Ferro Manganese"></div>
-      <div class="gallery-item"><img src="bentonite.jpg" alt="Bentonite Powder"></div>
-      <div class="gallery-item"><img src="perlite.jpg" alt="Perlite Ore"></div>
+      <div class="gallery-item"><img src="acidic-ramming.jpg" alt="Acidic Ramming Mass"><p>Acidic Ramming Mass</p></div>
+      <div class="gallery-item"><img src="basic-ramming.jpg" alt="Basic Ramming Mass"><p>Basic Ramming Mass</p></div>
+      <div class="gallery-item"><img src="graphite-scrap.jpg" alt="Graphite Scrap"><p>Graphite Scrap</p></div>
+      <div class="gallery-item"><img src="ferro-silicon.jpg" alt="Ferro Silicon"><p>Ferro Silicon</p></div>
+      <div class="gallery-item"><img src="ferro-manganese.jpg" alt="Ferro Manganese"><p>Ferro Manganese</p></div>
+      <div class="gallery-item"><img src="bentonite.jpg" alt="Bentonite Powder"><p>Bentonite Powder</p></div>
+      <div class="gallery-item"><img src="perlite.jpg" alt="Perlite Ore"><p>Perlite Ore</p></div>
     </div>
   </div>
 
@@ -207,10 +231,23 @@
   </div>
 
   <div class="container">
+    <h2>Enquiry Form</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="tel" placeholder="Your Phone" required>
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Submit Enquiry</button>
+    </form>
+  </div>
+
+  <div class="container">
     <h2>Contact Us</h2>
     <p>
       📍 65, South Ganesh Nagar, Opp. Mother Dairy Flats, Patparganj Road, Delhi-110092 <br>
-      📱 +91 98918 19178 | +91 99904 40743 <br>
+      📑 GST No: <strong>07AEUPG4619K1Z1</strong> <br>
+      👤 P.N. Gupta (Proprietor) <br>
+      📱 Mobile: +91 98918 19178 | +91 99904 40743 <br>
       📧 <a href="mailto:brightmetal6@gmail.com">brightmetal6@gmail.com</a>
     </p>
   </div>
@@ -231,7 +268,6 @@
       index = (index + 1) % bannerImages.length;
       bannerImages[index].classList.add("active");
     }
-
     function prevBanner() {
       bannerImages[index].classList.remove("active");
       index = (index - 1 + bannerImages.length) % bannerImages.length;
@@ -240,21 +276,15 @@
 
     // Swipe support for banner
     let startXBanner = 0;
-    let endXBanner = 0;
-
     banner.addEventListener("touchstart", (e) => {
-      clearInterval(bannerInterval); // pause auto-slide while swiping
+      clearInterval(bannerInterval);
       startXBanner = e.touches[0].clientX;
     });
-
     banner.addEventListener("touchend", (e) => {
-      endXBanner = e.changedTouches[0].clientX;
-      if (startXBanner - endXBanner > 50) {
-        nextBanner();
-      } else if (endXBanner - startXBanner > 50) {
-        prevBanner();
-      }
-      bannerInterval = setInterval(nextBanner, 4000); // resume auto-slide
+      let endXBanner = e.changedTouches[0].clientX;
+      if (startXBanner - endXBanner > 50) nextBanner();
+      else if (endXBanner - startXBanner > 50) prevBanner();
+      bannerInterval = setInterval(nextBanner, 4000);
     });
 
     // Lightbox functionality
@@ -273,50 +303,11 @@
         lightbox.classList.add("active");
       });
     });
-
-    function showImage() {
-      lightboxImg.src = galleryItems[currentIndex].src;
-    }
-
-    closeBtn.addEventListener("click", () => {
-      lightbox.classList.remove("active");
-    });
-
-    prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-      showImage();
-    });
-
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % galleryItems.length;
-      showImage();
-    });
-
-    // Close on background click
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.remove("active");
-      }
-    });
-
-    // Swipe support for lightbox
-    let startX = 0;
-    let endX = 0;
-
-    lightboxImg.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    });
-
-    lightboxImg.addEventListener("touchend", (e) => {
-      endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50) {
-        currentIndex = (currentIndex + 1) % galleryItems.length;
-        showImage();
-      } else if (endX - startX > 50) {
-        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-        showImage();
-      }
-    });
+    function showImage() { lightboxImg.src = galleryItems[currentIndex].src; }
+    closeBtn.addEventListener("click", () => lightbox.classList.remove("active"));
+    prevBtn.addEventListener("click", () => { currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length; showImage(); });
+    nextBtn.addEventListener("click", () => { currentIndex = (currentIndex + 1) % galleryItems.length; showImage(); });
+    lightbox.addEventListener("click", (e) => { if (e.target === lightbox) lightbox.classList.remove("active"); });
   </script>
 </body>
 </html>
