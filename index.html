@@ -33,7 +33,6 @@
       font-size: 16px;
       color: #555;
     }
-    /* Navigation Bar */
     nav {
       background: #2d2d2d;
       text-align: center;
@@ -50,7 +49,6 @@
     nav a:hover {
       color: #ffcc00;
     }
-    /* Banner/Slider */
     .banner {
       position: relative;
       width: 100%;
@@ -75,18 +73,6 @@
       border-bottom: 2px solid #ddd;
       padding-bottom: 5px;
     }
-    ul.products {
-      list-style: none;
-      padding: 0;
-    }
-    ul.products li {
-      background: #fff;
-      margin: 10px 0;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    /* Product Gallery */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -116,7 +102,12 @@
       margin: 10px 0 0;
       font-weight: bold;
     }
-    /* Enquiry Form */
+    .gallery-item p + p {
+      font-weight: normal;
+      font-size: 14px;
+      margin-top: 5px;
+      color: #555;
+    }
     form {
       background: #fff;
       padding: 20px;
@@ -151,7 +142,6 @@
       color: #fff;
       text-decoration: none;
     }
-    /* Lightbox */
     .lightbox {
       display: none;
       position: fixed;
@@ -183,19 +173,11 @@
       color: #fff;
       cursor: pointer;
     }
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      color: #fff;
-      font-size: 50px;
+    #form-message {
+      color: green;
       font-weight: bold;
-      cursor: pointer;
-      user-select: none;
-      padding: 0 20px;
+      display: none;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -206,15 +188,13 @@
     <p>Importer • Exporter • Supplier of Ferro Alloys, Metals & Minerals</p>
   </header>
 
-  <!-- Navigation Menu -->
   <nav>
-  <a href="#home">Home</a>
+    <a href="#home">Home</a>
     <a href="#about">About Us</a>
     <a href="#products">Our Products</a>
     <a href="#contact">Contact Us</a>
   </nav>
 
-  <!-- Banner Section -->
   <div class="banner" id="banner">
     <img src="Image_1.webp" class="active" alt="Casting Process 1">
     <img src="Image_2.jpeg" alt="Casting Process 2">
@@ -237,42 +217,56 @@
 
   <div class="container" id="products">
     <h2>Our Products</h2>
-    <ul class="products">
-      <li>Acidic Ramming Mass</li>
-      <li>Basic Ramming Mass</li>
-      <li>Graphite Scrap</li>
-      <li>Coal Dust</li>
-      <li>Ferro Silicon</li>
-      <li>Ferro Manganese</li>
-      <li>Bentonite Powder (Sodium Base)</li>
-      <li>Perlite Ore</li>
-    </ul>
-
-    <!-- Product Gallery -->
     <div class="gallery">
-      <div class="gallery-item"><img src="AcidicRammingMass.jpg" alt="Acidic Ramming Mass"><p>Acidic Ramming Mass</p></div>
-      <div class="gallery-item"><img src="BasicRamming Mass.jpg" alt="Basic Ramming Mass"><p>Basic Ramming Mass</p></div>
-      <div class="gallery-item"><img src="Graphite Scrap.jpg" alt="Graphite Scrap"><p>Graphite Scrap</p></div>
-      <div class="gallery-item"><img src="FerroSilicon.jpg" alt="Ferro Silicon"><p>Ferro Silicon</p></div>
-      <div class="gallery-item"><img src="ferro-manganese.jpg" alt="Ferro Manganese"><p>Ferro Manganese</p></div>
-      <div class="gallery-item"><img src="BentonitePowder.webp" alt="Bentonite Powder"><p>Bentonite Powder</p></div>
-      <div class="gallery-item"><img src="perliteore.jpeg" alt="Perlite Ore"><p>Perlite Ore</p></div>
+      <div class="gallery-item" onclick="openLightbox('AcidicRammingMass.jpg')">
+        <img src="AcidicRammingMass.jpg" alt="Acidic Ramming Mass">
+        <p>Acidic Ramming Mass</p>
+        <p>High-quality refractory material used in steel and foundry industries. Ensures durability and heat resistance. Easy to mold and apply in various furnace linings.</p>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('BasicRammingMass.jpg')">
+        <img src="BasicRamming Mass.jpg" alt="Basic Ramming Mass">
+        <p>Basic Ramming Mass</p>
+        <p>Specialized refractory for high-temperature applications. Provides thermal stability and long service life. Ideal for ladle and furnace linings.</p>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('GraphiteScrap.jpg')">
+        <img src="Graphite Scrap.jpg" alt="Graphite Scrap">
+        <p>Graphite Scrap</p>
+        <p>Pure graphite scrap suitable for electrodes and crucibles. High carbon content ensures excellent conductivity and resistance. Perfect for metallurgical processes.</p>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('FerroSilicon.jpg')">
+        <img src="FerroSilicon.jpg" alt="Ferro Silicon">
+        <p>Ferro Silicon</p>
+        <p>Essential alloy for steelmaking and cast iron production. Improves strength, hardness, and resistance to oxidation. Supplied in superior quality lumps or powder.</p>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('FerroManganese.jpg')">
+        <img src="ferro-manganese.jpg" alt="Ferro Manganese">
+        <p>Ferro Manganese</p>
+        <p>Critical for deoxidizing steel and enhancing hardness. Manufactured with consistent composition. Widely used in steel and foundry industries.</p>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('BentonitePowder.webp')">
+        <img src="BentonitePowder.webp" alt="Bentonite Powder">
+        <p>Bentonite Powder</p>
+        <p>Sodium-based powder for mold binding and casting applications. Ensures excellent plasticity, water retention, and adhesion. Perfect for foundry operations.</p>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('PerliteOre.jpeg')">
+        <img src="perliteore.jpeg" alt="Perlite Ore">
+        <p>Perlite Ore</p>
+        <p>Lightweight mineral used for insulation and refractory purposes. Expands when heated and provides excellent thermal insulation. Ideal for industrial and construction use.</p>
+      </div>
     </div>
   </div>
 
-  <!-- Enquiry Form -->
-  <div class="container">
-    <h2>Enquiry Form</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <input type="tel" placeholder="Your Phone" required>
-      <textarea placeholder="Your Message" rows="4" required></textarea>
-      <button type="submit">Submit Enquiry</button>
-    </form>
-  </div>
-
   <div class="container" id="contact">
+    <h2>Enquiry Form</h2>
+    <form id="enquiry-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Your Phone" required>
+      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Submit Enquiry</button>
+      <div id="form-message">Thank you! Your enquiry has been sent.</div>
+    </form>
+
     <h2>Contact Us</h2>
     <p>
       📍 65, South Ganesh Nagar, Opp. Mother Dairy Flats, Patparganj Road, Delhi-110092 <br>
@@ -287,25 +281,54 @@
     <p>&copy; 1994 - 2025 Bright Metal & Ferro Alloys. All Rights Reserved.</p>
   </footer>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="" alt="Product Image">
+  </div>
+
   <script>
     // Banner slider
     let index = 0;
-    const banner = document.getElementById("banner");
     const bannerImages = document.querySelectorAll(".banner img");
-    let bannerInterval = setInterval(nextBanner, 4000);
-
-    function nextBanner() {
+    setInterval(() => {
       bannerImages[index].classList.remove("active");
       index = (index + 1) % bannerImages.length;
       bannerImages[index].classList.add("active");
+    }, 4000);
+
+    // Lightbox functions
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
     }
-    function prevBanner() {
-      bannerImages[index].classList.remove("active");
-      index = (index - 1 + bannerImages.length) % bannerImages.length;
-      bannerImages[index].classList.add("active");
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
     }
+
+    // AJAX Enquiry Form Submission using Formspree
+    const form = document.getElementById('enquiry-form');
+    const formMessage = document.getElementById('form-message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      try {
+        const response = await fetch('https://formspree.io/f/mwkajnql', { // replace with your Formspree endpoint
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          formMessage.style.display = 'block';
+          form.reset();
+        } else {
+          alert('There was an error. Please try again later.');
+        }
+      } catch (error) {
+        alert('There was an error. Please try again later.');
+      }
+    });
   </script>
 </body>
 </html>
-
-
