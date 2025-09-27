@@ -14,24 +14,41 @@
       color: #333;
     }
     header {
-      background: #fff; /* Removed black background */
+      background: #fff;
       color: #333;
       text-align: center;
-      padding: 30px 10px;
+      padding: 30px 10px 15px;
       border-bottom: 2px solid #eee;
     }
     header img {
-      max-height: 160px; /* Bigger Logo */
+      max-height: 160px;
       margin-bottom: 10px;
     }
     header h1 {
-      margin: 10px 0 0;
+      margin: 5px 0 0;
       font-size: 32px;
       color: #222;
     }
     header p {
       font-size: 16px;
       color: #555;
+    }
+    /* Navigation Bar */
+    nav {
+      background: #2d2d2d;
+      text-align: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffcc00;
     }
     /* Banner/Slider */
     .banner {
@@ -189,13 +206,21 @@
     <p>Importer • Exporter • Supplier of Ferro Alloys, Metals & Minerals</p>
   </header>
 
-  <!-- Banner Section with Slider -->
+  <!-- Navigation Menu -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#products">Our Products</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+
+  <!-- Banner Section -->
   <div class="banner" id="banner">
     <img src="Image_1.webp" class="active" alt="Casting Process 1">
     <img src="Image_2.jpeg" alt="Casting Process 2">
   </div>
 
-  <div class="container">
+  <div class="container" id="about">
     <h2>About Us</h2>
     <p>
       Established in <strong>1994</strong> by <strong>Mr. P.N. Gupta</strong>, <strong>Bright Metal & Ferro Alloys</strong> 
@@ -208,11 +233,9 @@
       we source and supply materials that meet international standards. Our vision is to continue growing as a leader in 
       the industry, expanding globally while maintaining the trust and satisfaction of our customers.  
     </p>
-    <p>
-      Today, Bright Metal & Ferro Alloys is not just a supplier but a <strong>trusted partner</strong> for industries that 
-      rely on excellence in raw materials to fuel their production processes.
-    </p>
+  </div>
 
+  <div class="container" id="products">
     <h2>Our Products</h2>
     <ul class="products">
       <li>Acidic Ramming Mass</li>
@@ -225,7 +248,7 @@
       <li>Perlite Ore</li>
     </ul>
 
-    <!-- Product Gallery Grid -->
+    <!-- Product Gallery -->
     <div class="gallery">
       <div class="gallery-item"><img src="AcidicRammingMass.jpg" alt="Acidic Ramming Mass"><p>Acidic Ramming Mass</p></div>
       <div class="gallery-item"><img src="BasicRamming Mass.jpg" alt="Basic Ramming Mass"><p>Basic Ramming Mass</p></div>
@@ -237,16 +260,7 @@
     </div>
   </div>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <span class="lightbox-close">&times;</span>
-    <div class="lightbox-nav">
-      <span class="prev">&#10094;</span>
-      <span class="next">&#10095;</span>
-    </div>
-    <img src="" alt="">
-  </div>
-
+  <!-- Enquiry Form -->
   <div class="container">
     <h2>Enquiry Form</h2>
     <form>
@@ -258,7 +272,7 @@
     </form>
   </div>
 
-  <div class="container">
+  <div class="container" id="contact">
     <h2>Contact Us</h2>
     <p>
       📍 65, South Ganesh Nagar, Opp. Mother Dairy Flats, Patparganj Road, Delhi-110092 <br>
@@ -290,42 +304,6 @@
       index = (index - 1 + bannerImages.length) % bannerImages.length;
       bannerImages[index].classList.add("active");
     }
-
-    // Swipe support for banner
-    let startXBanner = 0;
-    banner.addEventListener("touchstart", (e) => {
-      clearInterval(bannerInterval);
-      startXBanner = e.touches[0].clientX;
-    });
-    banner.addEventListener("touchend", (e) => {
-      let endXBanner = e.changedTouches[0].clientX;
-      if (startXBanner - endXBanner > 50) nextBanner();
-      else if (endXBanner - startXBanner > 50) prevBanner();
-      bannerInterval = setInterval(nextBanner, 4000);
-    });
-
-    // Lightbox functionality
-    const galleryItems = document.querySelectorAll(".gallery-item img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = lightbox.querySelector("img");
-    const closeBtn = document.querySelector(".lightbox-close");
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
-    let currentIndex = 0;
-
-    galleryItems.forEach((item, i) => {
-      item.addEventListener("click", () => {
-        currentIndex = i;
-        showImage();
-        lightbox.classList.add("active");
-      });
-    });
-    function showImage() { lightboxImg.src = galleryItems[currentIndex].src; }
-    closeBtn.addEventListener("click", () => lightbox.classList.remove("active"));
-    prevBtn.addEventListener("click", () => { currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length; showImage(); });
-    nextBtn.addEventListener("click", () => { currentIndex = (currentIndex + 1) % galleryItems.length; showImage(); });
-    lightbox.addEventListener("click", (e) => { if (e.target === lightbox) lightbox.classList.remove("active"); });
   </script>
 </body>
 </html>
-
